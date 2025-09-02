@@ -1,5 +1,3 @@
-import Logo from "./_components/Logo";
-import Navigation from "./_components/Navigation";
 import { Josefin_Sans } from "next/font/google";
 const josefin = Josefin_Sans({
   subsets: ["latin"],
@@ -10,12 +8,11 @@ import Header from "./_components/Header";
 import { ReservationProvider } from "./_components/ReservationContext";
 
 export const metadata = {
-  // title: "The Wild Oasis website",
+
   title: {
     template: "%s / The Wild Oasis website",
     default: "Welcome / The Wild Oasis website",
   },
-  // for improve seo
   description:
     "Luxurious cabin hotel, located in the heart of the Italian Dolomites, surrounded by beautiful mountains and dark forests",
 };

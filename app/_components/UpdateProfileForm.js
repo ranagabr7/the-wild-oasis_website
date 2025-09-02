@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+
 "use client";
 import { useState } from "react";
 import SubmitButton from "./SubmitButton";
@@ -8,7 +8,7 @@ import { updateGuest } from "../_lib/actions";
 export default function UpdateProfileForm({ children, guest }) {
   const [count, setCount] = useState();
 
-  const { fullName, email, nationality, nationalID, countryFlag } = guest;
+  const { fullName, email,  nationalID, countryFlag } = guest;
 
   return (
     <form

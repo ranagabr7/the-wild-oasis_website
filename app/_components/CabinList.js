@@ -2,7 +2,7 @@ import CabinCard from "@/app/_components/CabinCard";
 import { getCabins } from "../_lib/data-service";
 export default async function CabinList({ filter }) {
   const cabins = await getCabins();
-  // console.log(cabins);
+
   if (!cabins.length) return null;
   let displayedCabins;
   if (filter === "all") displayedCabins = cabins;

@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+
 "use client";
 import { differenceInDays } from "date-fns";
 import { useReservation } from "./ReservationContext";
@@ -42,7 +42,7 @@ function ReservationForm({ cabin, user }) {
       </div>
 
       <form
-        // action={createBookingWithData}
+        
         action={async (formData) => {
           await createBookingWithData(formData);
           resetRange();

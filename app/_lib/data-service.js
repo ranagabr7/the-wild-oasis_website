@@ -2,8 +2,7 @@ import { notFound } from "next/navigation";
 import { eachDayOfInterval } from "date-fns";
 import { supabase } from "./supabase";
 
-/////////////
-// GET
+
 
 export async function getCabin(id) {
   const { data, error } = await supabase
@@ -45,7 +44,7 @@ export async function getCabins() {
   }
   return data;
 }
-// Guests are uniquely identified by their email address
+
 export async function getGuest(email) {
   const { data, error } = await supabase
     .from("guests")
@@ -143,8 +142,6 @@ export async function getCountries() {
   }
 }
 
-/////////////
-// CREATE
 
 export async function createGuest(newGuest) {
   const { data, error } = await supabase.from("guests").insert([newGuest]);
@@ -173,10 +170,7 @@ export async function createBooking(newBooking) {
   return data;
 }
 
-/////////////
-// UPDATE
 
-// The updatedFields is an object which should ONLY contain the updated data
 export async function updateGuest(formData) {
   const session = await auth();
   if (!session) throw new Error("You must be logged in");
@@ -214,8 +208,7 @@ export async function updateBooking(id, updatedFields) {
   return data;
 }
 
-/////////////
-// DELETE
+
 
 export async function deleteBooking(id) {
   const { data, error } = await supabase.from("bookings").delete().eq("id", id);
