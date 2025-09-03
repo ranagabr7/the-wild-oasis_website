@@ -1,6 +1,12 @@
 import { getBookedDatesByCabinId, getCabin } from "@/app/_lib/data-service";
 
-export async function GET( { params }) {
+export async function GET(request, { params }) {
+  if (!params?.cabinId) {
+    return new Response(JSON.stringify({ error: " cabin id undefiend" }), {
+      status: 400,
+    });
+  }
+
   const { cabinId } = params;
 
   try {
@@ -14,5 +20,3 @@ export async function GET( { params }) {
     return Response.json({ message: "Cabin not found" });
   }
 }
-
-
