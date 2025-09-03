@@ -1,14 +1,11 @@
 import { getBookedDatesByCabinId, getCabin } from "@/app/_lib/data-service";
+import { NextResponse } from "next/server";
 
 export async function GET(request, { params }) {
-  if (!params?.cabinId) {
-    return new Response(JSON.stringify({ error: " cabin id undefiend" }), {
-      status: 400,
-    });
+  const cabinId = params?.cabinId;
+  if (!cabinId) {
+    return NextResponse.json({ error: "missing cabinId" }, { status: 400 });
   }
-
-  const { cabinId } = params;
-
   try {
     const [cabin, bookedDates] = await Promise.all([
       getCabin(cabinId),
